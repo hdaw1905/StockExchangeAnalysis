@@ -1,6 +1,7 @@
 # An-example-of-Stock-exchange-analysis-for-beginners-using-Python
 The weekly rates of return for five stocks listed on the New York Stock Exchange are given in the file Stocks.dat. Call these stock column vectors: A, B, C, D, and E. we will approximate the joint distribution of the pair of stocks. Then we will find the covariance and correlation between each pair of stocks using the approximated probability distribution functions (pdfs) and directly over the data (sample covariance) too. The idea is to find out which two stocks have the highest correlation and how to use this information for investment.
 
+
 1 . Plot each column separately in a single plot (different color) and
 observe. Which stocks do you think has the highest correlation ?
 
@@ -47,7 +48,7 @@ plt.show()
 
 4. Estimate the Covariance/Correlation from the joint pdf.
 
-with open('PASTE THE STocks.dat file location Here','r') as f:
+with open('PASTE THE STocks.csv file location Here','r') as f:
 g=f.readlines()
 # Each line is split based on commas, and the list
 of floats are formed
@@ -67,7 +68,7 @@ range(len(sub_x))])
 denominator = len(x)-1
 cov = numerator/denominator
 return cov
-with open('PASTE THE STocks.dat file location Here', 'r') as f:
+with open('PASTE THE STocks.csv file location Here', 'r') as f:
 cov_func = covariance(sep_length, sep_width)
 print("Covariance from the custom function:",
 cov_func)
@@ -93,7 +94,7 @@ equivalent to (std_deviation_x**0.5) *
 (std_deviation_y**0.5)
 cor = numerator/denominator
 return cor
-with open('PASTE THE STocks.dat file location Here', 'r') as f:
+with open('PASTE THE STocks.csv file location Here', 'r') as f:
 cor_func = correlation(sep_length, sep_width)
 print("Correlation from the custom function:",
 cor_func)
