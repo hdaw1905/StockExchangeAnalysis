@@ -173,3 +173,11 @@ companies have a stock correlation, let us say about 0.9, which means that both
 companies have a chance of 90% to rise or fall at the same time. After that, during
 the next years, the company will refer to the old data, were it was having the
 highest possible correlation, so that it can reduce the risks .
+
+Sources :
+https://www.youtube.com/watch?v=TiADzIbeO38
+https://pythonhosted.org/prob140/joint_tutorial.html
+https://dlsun.github.io/symbulate/joint.html
+https://stackabuse.com/covariance-and-correlation-in-python/
+https://seaborn.pydata.org/generated/seaborn.jointplot.html
+https://datatofish.com/correlation-matrix-pandas/
