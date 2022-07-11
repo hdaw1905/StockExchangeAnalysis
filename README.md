@@ -3,13 +3,16 @@ The weekly rates of return for five stocks listed on the New York Stock Exchange
 
 1 . Plot each column separately in a single plot (different color) and
 observe. Which stocks do you think has the highest correlation ?
+
 ![image](https://user-images.githubusercontent.com/106637184/178302311-91b7e4c4-0f81-4b01-8826-8f0d596c0e46.png)
+
 According to the plot shown above, which illustrates the correlation
 between 5 stocks ( A,B,C,D,E) with respect to the time on the x-axis ,
 which was 103 weeks , since the number of rows is 103 , and each row has
 5 different values of ( A,B,C,D,and E). After looking into the plot, it seems
 that the highest correlation was between stocks (E and D), as shown
 below.
+
 ![image](https://user-images.githubusercontent.com/106637184/178302522-00f11d04-5fdc-4a6e-aa5d-efc7dd6927bd.png)
 
  2. Perform statistical normalization: zero mean + unit variance
@@ -17,7 +20,9 @@ below.
 The code of standardizing 
 ZA = zscore(X.A);
 histogram(ZE,16);
+
 ![image](https://user-images.githubusercontent.com/106637184/178302772-27cadc74-85bd-428f-9209-08fcaf07c6a5.png)
+
 After performing normalization process for each stock vector ( A, B , C ,D , E ) , it is
 obvious that each column has shifted to have zero mean , and unit variance .
 
@@ -36,6 +41,7 @@ kind= 'scatter')
 plt.xlabel('Stock D')
 plt.xlabel('Stock E')
 plt.show()
+
 ![image](https://user-images.githubusercontent.com/106637184/178303273-b17e820b-784a-4245-a8e3-10f4d6b8cf4c.png)
 ![image](https://user-images.githubusercontent.com/106637184/178303293-83ce5ff0-14c8-403a-a056-bf04faf065bb.png)
 
