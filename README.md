@@ -1,9 +1,8 @@
-# An-example-of-Stock-exchange-analysis-for-beginners-using-Python
+# Stock-exchange-analysis-for-beginners-using-Python
 The weekly rates of return for five stocks listed on the New York Stock Exchange are given in the file Stocks.dat. Call these stock column vectors: A, B, C, D, and E. we will approximate the joint distribution of the pair of stocks. Then we will find the covariance and correlation between each pair of stocks using the approximated probability distribution functions (pdfs) and directly over the data (sample covariance) too. The idea is to find out which two stocks have the highest correlation and how to use this information for investment.
 
 
-#1 . Plot each column separately in a single plot (different color) and
-observe. Which stocks do you think has the highest correlation ?
+# 1 . Plot each column separately in a single plot (different color) and observe. Which stocks do you think has the highest correlation ?
 
 ![image](https://user-images.githubusercontent.com/106637184/178302311-91b7e4c4-0f81-4b01-8826-8f0d596c0e46.png)
 
@@ -16,9 +15,8 @@ below.
 
 ![image](https://user-images.githubusercontent.com/106637184/178302522-00f11d04-5fdc-4a6e-aa5d-efc7dd6927bd.png)
 
- #2. Perform statistical normalization: zero mean + unit variance
+ # 2. Perform statistical normalization: zero mean + unit variance .
  
-The code of standardizing 
 ZA = zscore(X.A);
 histogram(ZE,16);
 
@@ -27,7 +25,7 @@ histogram(ZE,16);
 After performing normalization process for each stock vector ( A, B , C ,D , E ) , it is
 obvious that each column has shifted to have zero mean , and unit variance .
 
-#3. Compute and plot the joint pdf
+# 3. Compute and plot the joint pdf .
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -45,23 +43,23 @@ plt.show()
 ![image](https://user-images.githubusercontent.com/106637184/178303273-b17e820b-784a-4245-a8e3-10f4d6b8cf4c.png)
 ![image](https://user-images.githubusercontent.com/106637184/178303293-83ce5ff0-14c8-403a-a056-bf04faf065bb.png)
 
-#4. Estimate the Covariance from the joint pdf ( probabiltiy density function ) .
+# 4. Estimate the Covariance from the joint pdf ( probabiltiy density function ) .
 
 with open('PASTE THE STocks.csv file location Here','r') as f:
 g=f.readlines()
 
-# Each line is split based on commas, and the list of floats are formed
+# Each line is split based on commas, and the list of floats are formed .
 sep_length = [float(x.split(',')[0]) for x in
 g[1:]]
 sep_width = [float(x.split(',')[1]) for x in
 g[1:]]
 
-# Finding the mean of the series x and y
+# Finding the mean of the series x and y .
 def covariance(x, y):
 mean_x = sum(x)/float(len(x))
 mean_y = sum(y)/float(len(y))
 
-# Subtracting mean from the individual elements
+# Subtracting mean from the individual elements.
 sub_x = [i - mean_x for i in x]
 sub_y = [i - mean_y for i in y]
 numerator = sum([sub_x[i]*sub_y[i] for i in range(len(sub_x))])
@@ -75,33 +73,34 @@ print("Covariance from the custom function:",cov_func)
 #5. Estimate the correlation from the joint pdf ( probabiltiy density function ) 
 
 def correlation(x, y):
-# Finding the mean of the series x and y ( not for indvidual elements but for series of elements) 
+# Finding the mean of the series x and y ( not for indvidual elements but for series of elements) .
 mean_x = sum(x)/float(len(x))
 mean_y = sum(y)/float(len(y))
-# Subtracting mean from the individual elements
+# Subtracting mean from the individual elements.
 sub_x = [i-mean_x for i in x]
 sub_y = [i-mean_y for i in y]
 
-# covariance for x and y
-numerator = sum([sub_x[i]*sub_y[i] for i in range(len(sub_x))])
-# Standard Deviation of x and y
+# covariance for x and y.
+numerator = sum([sub_x[i]*sub_y[i] for i in range(len(sub_x))]).
+
+# Standard Deviation of x and y.
 std_deviation_x = sum([sub_x[i]**2.0 for i in range(len(sub_x))])
 std_deviation_y = sum([sub_y[i]**2.0 for i in range(len(sub_y))])
+
 # squaring by 0.5 to find the square root
-denominator = (std_deviation_x*std_deviation_y)**0.5 # short but
-equivalent to (std_deviation_x**0.5) * (std_deviation_y**0.5)
+denominator = (std_deviation_x*std_deviation_y)**0.5  (# short but equivalent to (std_deviation_x**0.5) * (std_deviation_y**0.5) ) 
 cor = numerator/denominator
 return cor
 with open('PASTE THE STocks.csv file location Here', 'r') as f:
 cor_func = correlation(sep_length, sep_width)
 print("Correlation from the custom function:", cor_func)
 
-#Output Sample : 
+# Output Sample : 
 Covericance and cor between AB
 Covariance from the custom function: 0.0002794144478856378
 Correlation from the custom function: 0.636158155633225
 
-#6. Calculate sample Covariance/Correlation matrices
+# 6. Calculate sample Covariance/Correlation matrices
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -133,7 +132,7 @@ AD
 
 ![image](https://user-images.githubusercontent.com/106637184/178304256-74157a03-9a9a-4ff6-bea2-e174f978f248.png)
 
-#Conclusions 
+# Conclusions 
 As we can see, the diagonal elements are the same , from left upper corner to
 right lower corner , or vice versa . Furthermore, it is noticed that the highest
 correlation is between Stocks E and D , as illustrated in the diagonal
@@ -150,7 +149,7 @@ correlation was between stocks A & D.
 '
 ![image](https://user-images.githubusercontent.com/106637184/178304539-e8ff76c5-9361-4de6-9c9f-0c87be4679bf.png)
 
-#Critical thinking Question : how can you use the “stock correlation” information for investment (to reduce the risks-OR- maximize the profits) ?
+# Critical thinking Question : how can you use the “stock correlation” information for investment (to reduce the risks-OR- maximize the profits) ?
 
 After plotting the data between the stocks, and understanding what the correlation
 between the stocks is, and specifying the highest and lowest correlation. I guess
@@ -161,7 +160,7 @@ companies have a chance of 90% to rise or fall at the same time. After that, dur
 the next years, the company will refer to the old data, were it was having the
 highest possible correlation, so that it can reduce the risks .
 
-#Sources :
+# Sources :
 https://www.youtube.com/watch?v=TiADzIbeO38
 https://pythonhosted.org/prob140/joint_tutorial.html
 https://dlsun.github.io/symbulate/joint.html
