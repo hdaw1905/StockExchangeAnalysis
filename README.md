@@ -44,80 +44,80 @@ plt.show()**</br>
 ## 4. Estimate the Covariance from the joint pdf ( probabiltiy density function ) .
 
 <br>**with open('PASTE THE STocks.csv file location Here','r') as f**:</br>
-g=f.readlines()**</br>
+**g=f.readlines()**</br>
 
 ## Each line is split based on commas, and the list of floats are formed .
-<br>**sep_length = [float(x.split(',')[0]) for x in g[1:]]</br>
-sep_width = [float(x.split(',')[1]) for x in g[1:]]**</br>
+<br>**sep_length = [float(x.split(',')[0]) for x in g[1:]]**</br>
+**sep_width = [float(x.split(',')[1]) for x in g[1:]]**</br>
 
 ## Finding the mean of the series x and y .
-<br>**def covariance(x, y):</br>
-mean_x = sum(x)/float(len(x))</br>
-mean_y = sum(y)/float(len(y))**</br>
+<br>**def covariance(x, y):**</br>
+**mean_x = sum(x)/float(len(x))**</br>
+**mean_y = sum(y)/float(len(y))**</br>
 
 ## Subtracting mean from the individual elements.
-<br>**sub_x = [i - mean_x for i in x]</br>
-sub_y = [i - mean_y for i in y]</br>
-numerator = sum([sub_x[i]*sub_y[i] for i in range(len(sub_x))])</br>
-denominator = len(x)-1</br>
-cov = numerator/denominator</br>
-return cov</br>
-with open('PASTE THE STocks.csv file location Here', 'r') as f:</br>
-cov_func = covariance(sep_length, sep_width)</br>
-print("Covariance from the custom function:",cov_func)**</br>
+<br>**sub_x = [i - mean_x for i in x]**</br>
+**sub_y = [i - mean_y for i in y]**</br>
+**numerator = sum([sub_x[i]*sub_y[i] for i in range(len(sub_x))])**</br>
+**denominator = len(x)-1**</br>
+**cov = numerator/denominator**</br>
+**return cov**</br>
+**with open('PASTE THE STocks.csv file location Here', 'r') as f:**</br>
+**cov_func = covariance(sep_length, sep_width)**</br>
+**print("Covariance from the custom function:",cov_func)**</br>
 
 ## 5. Estimate the correlation from the joint pdf ( probabiltiy density function ) 
 
 <br>**def correlation(x, y):**</br>
 ## Finding the mean of the series x and y ( not for indvidual elements but for series of elements) .
-<br>**mean_x = sum(x)/float(len(x))</br>
-mean_y = sum(y)/float(len(y))</br>
+<br>**mean_ x = sum(x)/float(len(x))**</br>
+**mean_ y = sum(y)/float(len(y))**</br>
 ## Subtracting mean from the individual elements.
-<br>sub_x = [i-mean_x for i in x]</br>
+<br>**sub_x = [i-mean_x for i in x]</br>
 sub_y = [i-mean_y for i in y]**</br>
 
 ## covariance for x and y.
 <br>**numerator = sum([sub_x[i]*sub_y[i] for i in range(len(sub_x))]).**</br>
 
 ## Standard Deviation of x and y.
-<br>**std_deviation_x = sum([sub_x[i]* *2.0 for i in range(len(sub_x))])</br>
-std_deviation_y = sum([sub_y[i]* *2.0 for i in range(len(sub_y))])**</br>
+<br>**std_deviation_x = sum([sub_x[i]* *2.0 for i in range(len(sub_x))])**</br>
+**std_deviation_y = sum([sub_y[i]* *2.0 for i in range(len(sub_y))])**</br>
 
 ## squaring by 0.5 to find the square root
-<br>**denominator = (std_deviation_x*std_deviation_y)* *0.5  (# short but equivalent to (std_deviation_x* *0.5) * (std_deviation_y* *0.5) )</br> 
-cor = numerator/denominator</br>
-return cor</br>
-with open('PASTE THE STocks.csv file location Here', 'r') as f:</br>
-cor_func = correlation(sep_length, sep_width)</br>
-print("Correlation from the custom function:", cor_func)**</br>
+<br>**denominator = (std_deviation_x*std_deviation_y)* *0.5  (# short but equivalent to (std_deviation_x* *0.5) * (std_deviation_y* *0.5) )**</br> 
+**cor = numerator/denominator**</br>
+**return cor**</br>
+**with open('PASTE THE STocks.csv file location Here', 'r') as f:**</br>
+**cor_func = correlation(sep_length, sep_width)**</br>
+**print("Correlation from the custom function:", cor_func)**</br>
 
 ## Output Sample : 
-<br>**Covericance and cor between AB</br>
-Covariance from the custom function: 0.0002794144478856378</br>
-Correlation from the custom function: 0.636158155633225**</br>
+<br>**Covericance and cor between AB**</br>
+**Covariance from the custom function: 0.0002794144478856378**</br>
+**Correlation from the custom function: 0.636158155633225**</br>
 
 ## 6. Calculate sample Covariance/Correlation matrices
-<br>**import numpy as np</br>
-import seaborn as sns</br>
-import matplotlib.pyplot as plt</br>
-with open('PASTE THE STocks.dat file location Here','r') as f:</br>
-g=f.readlines()**</br>
+<br>**import numpy as np**</br>
+**import seaborn as sns**</br>
+**import matplotlib.pyplot as plt**</br>
+**with open('PASTE THE STocks.dat file location Here','r') as f:**</br>
+**g=f.readlines()**</br>
 
 ## Each line is split based on commas, and the list of floats are formed
-<br>**A = [float(x.split(',')[0]) for x in g[1:]]</br>
-B = [float(x.split(',')[1]) for x in g[1:]]</br>
-C = [float(x.split(',')[2]) for x in g[1:]]</br>
-D = [float(x.split(',')[3]) for x in g[1:]]</br>
-E = [float(x.split(',')[4]) for x in g[1:]]</br>
-AB = np.corrcoef(A,B)</br>
-AC= np.corrcoef(A,C)</br>
-print("AB\n ", AB)</br>
-print("AC\n ", AC)**</br>
+<br>**A = [float(x.split(',')[0]) for x in g[1:]]**</br>
+**B = [float(x.split(',')[1]) for x in g[1:]]**</br>
+**C = [float(x.split(',')[2]) for x in g[1:]]**</br>
+**D = [float(x.split(',')[3]) for x in g[1:]]**</br>
+**E = [float(x.split(',')[4]) for x in g[1:]]**</br>
+**AB = np.corrcoef(A,B)**</br>
+**AC= np.corrcoef(A,C)**</br>
+**print("AB\n ", AB)**</br>
+**print("AC\n ", AC)**</br>
 
 # Output Sample : 
 <br>**AB</br>
-[[1      0.63615816]</br>
-[0.63615816     1 ]]</br>
+[[1       0.63615816]</br>
+[0.63615816      1 ]]</br>
 AC</br>
 [[1      0.51343318]</br>
 [0.51343318     1.]]</br>
