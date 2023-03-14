@@ -13,12 +13,14 @@ import matplotlib.pyplot as plt
 Here, we are importing the required libraries, including NumPy for numerical computations, pandas for data manipulation, seaborn for data visualization, and matplotlib for plotting.
 
 ## 2- Loading the Data
+
 ```python data = pd.read_csv("Stocks.dat", sep="\s+", header=None)
 
 ```
 Here, we are reading the data from the "Stocks.dat" file using pandas' read_csv() function. We use the sep parameter to specify that the data is separated by one or more whitespace characters, and the header parameter to specify that the data does not have a header row.
 
 ## 3- Renaming the Columns
+
 ```python data.columns = ["A", "B", "C", "D", "E"]
 
 ```
