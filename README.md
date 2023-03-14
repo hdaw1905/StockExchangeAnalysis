@@ -4,7 +4,8 @@ The file **Stocks.dat** contains the ``weekly rates of return`` for **five stock
 
 ## 1- Importing Required Libraries
 
-```python import numpy as np 
+```python 
+import numpy as np 
 import pandas as pd
 import seaborn as sns 
 import matplotlib.pyplot as plt 
@@ -14,20 +15,23 @@ Here, we are importing the required libraries, including NumPy for numerical com
 
 ## 2- Loading the Data
 
-```python data = pd.read_csv("Stocks.dat", sep="\s+", header=None)
+```python 
+data = pd.read_csv("Stocks.dat", sep="\s+", header=None)
 
 ```
 Here, we are reading the data from the "Stocks.dat" file using pandas' read_csv() function. We use the sep parameter to specify that the data is separated by one or more whitespace characters, and the header parameter to specify that the data does not have a header row.
 
 ## 3- Renaming the Columns
 
-```python data.columns = ["A", "B", "C", "D", "E"]
+```python 
+data.columns = ["A", "B", "C", "D", "E"]
 
 ```
 Here, we are renaming the columns of the data to A, B, C, D, and E using pandas' columns attribute.
 
 ## 4- Computing the Sample Mean Vector and Sample Covariance Matrix
-```python mu = np.mean(data, axis=0)
+```python 
+mu = np.mean(data, axis=0)
 Sigma = np.cov(data.T)
 
 ```
@@ -37,7 +41,8 @@ Here, we are computing the sample mean vector mu and the sample covariance matri
 
 
 ## 5- Printing the Sample Mean Vector and Sample Covariance Matrix
-```python print("Sample Mean Vector:")
+```python 
+print("Sample Mean Vector:")
 print(mu)
 print("\nSample Covariance Matrix:")
 print(Sigma)
@@ -48,7 +53,8 @@ Here, we are printing the sample mean vector mu and the sample covariance matrix
 ![image](https://user-images.githubusercontent.com/106637184/225050385-d002ee53-51ed-4419-be87-50ed4cab7c0f.png)
 
 ## 6- Computing the Correlation Matrix
-```python R = np.corrcoef(data.T)
+```python
+R = np.corrcoef(data.T)
 
  ``` 
 Here, we are computing the correlation matrix R using NumPy's corrcoef() function. We transpose the data using .T to make sure that the correlation matrix is calculated between pairs of stocks.
@@ -56,13 +62,15 @@ Here, we are computing the correlation matrix R using NumPy's corrcoef() functio
 ![image](https://user-images.githubusercontent.com/106637184/225050504-3b4104ef-0b9e-4326-9996-3c6a8b708302.png)
 
 ## 7- Printing the Correlation Matrix
-```python print("\nCorrelation Matrix:")
+```python
+print("\nCorrelation Matrix:")
 print(R)
 
 ```
 ## 8- Plotting the Heat Map of the Correlation Matrix
 
-```python sns.heatmap(R, annot=True, cmap="coolwarm")
+```python
+sns.heatmap(R, annot=True, cmap="coolwarm")
 plt.title("Correlation Matrix")
 plt.show()
 
@@ -73,7 +81,8 @@ Here, we are plotting the heat map of the correlation matrix R using Seaborn's h
 
 
 ## 9- Finding the Pair of Stocks with the Highest Correlation
-```python max_corr_idx = np.unravel_index(np.argmax(np.abs(R - np.identity(5))), R.shape)
+```python 
+max_corr_idx = np.unravel_index(np.argmax(np.abs(R - np.identity(5))), R.shape)
 print("\nPair of Stocks with the Highest Correlation: {} and {}".format(chr(max_corr_idx[0]+65), chr(max_corr_idx[1]+65)))
 
 ```
