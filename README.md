@@ -1,4 +1,7 @@
 # Stock Exchange Analysis 
+
+The file **Stocks.dat** contains the ``weekly rates of return`` for **five stocks** listed on **the New York Stock Exchange**, denoted as column vectors A, B, C, D, and E. Our objective is to ``estimate the joint distribution`` of the stock pairs and calculate their **covariance** and **correlation**. Our goal is to identify the  pair of stocks with **the highest correlation** and use this information for **investment** purposes.
+
 ## 1- Importing Required Libraries
 
 ```python import numpy as np 
