@@ -4,7 +4,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # Load the data from the "Stocks.dat" file
-data = pd.read_csv("C:/Users/hesha/Downloads/StockExchangeAnalysisPython-main (2)/StockExchangeAnalysisPython-main/Stocks.CSV", sep="\s+", header=None)
+data = pd.read_csv(""copy the file path HERE of Stocks"/Stocks.CSV", sep="\s+", header=None)
 
 # Rename the columns as A, B, C, D, and E
 data.columns = ["A", "B", "C", "D", "E"]
